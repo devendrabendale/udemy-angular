@@ -1,0 +1,13 @@
+<input type="text" [(ngModel)]="newItem"> | 
+<button 
+    (click)="onNewItemClick()"
+    [ngClass]="{'btn-primary':newItem!='', 'btn-default':newItem===''}"
+    [disabled]="newItem===''" >Add New</button>
+    <div *ngIf="newItem===''">Please Enter Item Name</div>
+<br>
+<hr>
+<ul class="list-group">
+    <li class="list-group-item" 
+    *ngFor="let item of itemList; let i = index"
+    [ngStyle]="{'background-color' : i % 2 === 0 ? 'gray' : 'white'}">{{item}}</li>
+</ul>
